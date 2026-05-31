@@ -1,0 +1,24 @@
+[
+    {
+        "label": "Game",
+        "url": "/k/"
+    }, {
+        "label": "Download",
+        "url": "/k/download/"
+    }, {
+        "label": "Media",
+        "url": "/k/media/"
+    }, {
+        "label": "Servers",
+        "url": "/k/servers/"
+    }, {
+        "label": "Matches",
+        "url": "/k/matches/"
+    }, {
+        "label": "Faq",
+        "url": "/k/faq/"
+    }, {
+        "label": "Donate",
+        "url": "/k/donate/"
+    }
+]
