@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "server": "npx @11ty/eleventy --watch --serve --output=_site_live",
-        "build": "npx @11ty/eleventy"
+        "server": "npx @11ty/eleventy --watch --serve",
+        "build": "rm -rf _site && npx @11ty/eleventy && zip -r _site.zip _site"
     },
     "keywords": [],
     "author": "",
