@@ -1,0 +1,54 @@
+---
+# vim: set ft=html:
+layout: layout/k.njk
+title: KITSUNETSUKI project | Download
+index: index.html
+---
+
+<div id="k-middle" class="k-compact">
+    {% include "k/middle.njk" %}
+</div>
+
+<div id="k-content">
+    <div class="k-section k-bg-light">
+        <h2 class="k-heading">Download</h2>
+
+        <div class="k-tabs k-bg-dark k-hor-center k-hor-center-inside k-ver-long">{#
+            tab 1
+            #}<input name="tabs" type="radio" id="tab-1" checked="checked" />{#
+            tab 1 button
+            #}<label class="k-button" for="tab-1">
+                <span class="k-ver-middler"></span>
+                <span class="k-label">
+                    <img alt="GameJolt Logo" class="k-ver-middle" width="16" height="16"
+                         src="{{static_url}}dashboard/image/logo/gamejolt-bolt-white-4x.d54b82f8.png" />
+                    GameJolt
+                </span>
+            </label><div class="k-tab k-bg-dark k-hor-left-inside">
+                <div class="k-hor-center-inside">
+                    <iframe src="https://widgets.gamejolt.com/package/v1?key=bTwbr9hL"
+                            width="536" height="245"></iframe>
+                </div>
+            </div>{#
+
+            tab 2
+            #}<input name="tabs" type="radio" id="tab-2" checked="checked" />{#
+            tab 2 button
+            #}<label class="k-button" for="tab-2">
+                <span class="k-label">
+                    <i class="fab fa-itch-io"></i> itch.io
+                </span>
+            </label><div class="k-tab k-bg-dark k-hor-left-inside">
+                <div class="k-hor-center-inside">
+                    <iframe src="https://itch.io/embed/256684?border_width=0&amp;bg_color=292E38&amp;fg_color=edf0eb&amp;link_color=b300ff&amp;border_color=292E38"
+                            width="536" height="165"></iframe>
+                </div>
+            </div>{#
+
+            end
+            #}
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+</div>

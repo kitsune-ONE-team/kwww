@@ -1,0 +1,86 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Fan Kit
+emojis:
+  - name: love
+    label: Love
+  - name: mad
+    label: Mad
+  - name: scared
+    label: Scared
+  - name: baka
+    label: BAKA
+  - name: wat
+    label: WAT
+  - name: neko
+    label: Neko
+  - name: panda3d
+    label: Panda3D
+---
+
+<div id="k-content">
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">Emoji / Stickers</h2>
+
+        {% for emoji in emojis %}
+            <div class="k-panel k-one-quarter k-stacked k-hor-center-inside">
+                {% for size in [64, 32] %}
+                    <a href="image/emoji/{{emoji.name}}_{{size}}.png">
+                        <img alt="{{emoji.label}} Emoji {{size}}px"
+                             width="{{size}}" height="{{size}}" title="{{emoji.label}}"
+                             src="/image/emoji/{{emoji.name}}_{{size}}.png" />
+                    </a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <div class="k-clear"></div>
+    </div>
+
+    <div class="k-section k-bg-light">
+        <h2 class="k-heading">Logo</h2>
+
+        <div class="k-panel k-one-quarter k-stacked k-hor-center-inside">
+            <a href="image/logo/icon0_256.png">
+                <img alt="Main Logo" width="96" height="96" title="Main Logo"
+                     src="/image/logo/icon0_256.png" />
+            </a>
+        </div>
+
+        <div class="k-panel k-one-quarter k-stacked k-hor-center-inside">
+            <a href="image/logo/icon_256.png">
+                <img alt="Game Logo" width="96" height="96" title="Game Logo"
+                     src="/image/logo/icon_256.png" />
+            </a>
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">AniMe Matrix</h2>
+
+        <p>
+            Animations for ASUS Zephyrus laptops with
+            <a href="https://www.youtube.com/watch?v=bnn3tobg_no">AniMe Matrix</a>
+            display.
+        </p>
+
+        <div class="k-panel k-one-quarter k-stacked k-hor-center-inside">
+            <a href="image/anime_matrix/logo.gif">
+                <img alt="Logo for AniMe Matrix" width="74" height="36"
+                     src="/image/anime_matrix/logo.gif" />
+            </a>
+        </div>
+
+        <div class="k-panel k-one-quarter k-stacked k-hor-center-inside">
+            <a href="image/anime_matrix/intro.gif">
+                <img alt="Intro for AniMe Matrix" width="74" height="36"
+                     src="/image/anime_matrix/intro.gif" />
+            </a>
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+</div>

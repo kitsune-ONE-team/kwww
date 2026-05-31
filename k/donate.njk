@@ -1,0 +1,63 @@
+---
+# vim: set ft=html:
+layout: layout/k.njk
+title: KITSUNETSUKI project | Donate
+index: index.html
+---
+
+<div id="k-middle" class="k-compact">
+    {% include "k/middle.njk" %}
+</div>
+
+<div id="k-content">
+    <div class="k-section k-bg-light">
+        <h2 id="crypto" class="k-heading">Donate with Crypto</h2>
+
+        <p class="k-heading">
+            Support project's development by donating any amount of money.
+        </p>
+
+        <div class="k-tabs k-bg-dark k-hor-center k-hor-center-inside k-ver-long">{#
+            tab 1
+            #}<input name="tabs" type="radio" id="tab-1" checked="checked" />{#
+            tab 1 button
+            #}<label class="k-button" for="tab-1">
+                <span class="k-label">
+                    <i class="fab fa-bitcoin"></i> Bitcoin (BTC)
+                </span>
+            </label><div class="k-tab k-bg-dark k-hor-left-inside">
+                <p class="k-heading">
+                    <strong>BTC (SegWit/bech32):</strong><br/>
+                    <span id="address-btc"></span>
+                </p>
+                <div class="k-hor-center-inside">
+                    <div id="qrcode-btc"></div>
+                </div>
+            </div>{#
+
+            tab 3
+            #}<input name="tabs" type="radio" id="tab-3" />{#
+            tab 3 button
+            #}<label class="k-button" for="tab-3">
+                <span class="k-label">
+                    <i class="fa-solid fa-gem"></i> Solana (SOL)
+                </span>
+            </label><div class="k-tab k-bg-dark k-hor-left-inside">
+                <p class="k-heading">
+                    <strong>SOL:</strong><br/>
+                    <span id="address-sol"></span>
+                </p>
+                <div class="k-hor-center-inside">
+                    <div id="qrcode-sol"></div>
+                </div>
+            </div>{#
+
+            end
+            #}
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+</div>
+<script>
+</script>

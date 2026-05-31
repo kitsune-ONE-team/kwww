@@ -1,0 +1,108 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+---
+
+<div class="k-section k-bg-dark" id="k-monitoring">
+    <h2 class="k-heading">Monitoring</h2>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/amcharts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/serial.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/pie.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.13.0/themes/dark.js"></script>
+
+<script>
+    GRAPHS = {};
+    GRAPHS.makeChart = function(id, data, graphs, values) {
+        console.log('makeChart', id, data, graphs, values);
+        AmCharts.makeChart(id, {
+            'type': 'serial',
+            'theme': 'dark',
+            'dataProvider': data,
+            'fontFamily': '"Rubik", sans-serif',
+            'color': '#ffffff',
+            'colors': [
+                '#B0DE09',
+                '#0D8ECF',
+                '#2A0CD0',
+                '#CD0D74',
+                '#CC0000',
+                '#00CC00',
+                '#0000CC',
+                '#DDDDDD',
+                '#999999',
+                '#333333',
+                '#990000'
+            ],
+            'chartCursor': {
+                'categoryBalloonDateFormat': 'YYYY-MM-DD HH:NN:SS',
+                'cursorPosition': 'mouse',
+                'color': '#ffffff',
+                'cursorColor': '#000000'
+            },
+            'balloon': {
+                'adjustBorderColor': true,
+                'color': '#ffffff',
+                'cornerRadius': 5,
+                'fontSize': 13,
+                'fillColor': '#b300ff',
+                'horizontalPadding': 11,
+                'verticalPadding': 4
+            },
+            {# horizontal axis #}
+            'categoryField': 'date',
+            'categoryAxis': {
+                'minPeriod': 'mm',
+                'parseDates': true,
+                'axisColor': '#ffffff',
+                'gridColor': '#ffffff'
+            },
+            {# vertical axis #}
+            'valueAxes': values,
+            {# graphs #}
+            'graphs': graphs
+        });
+    };
+
+    $.get('/api/monitoring/dashboard/1/', function(data, status) {
+        var monitoring = document.getElementById('k-monitoring');
+
+        for (widget of data.widget_set) {
+            var graphs = [];
+            var values = [];
+
+            for (key in widget.graph.data[0]) {
+                graphs.push({
+                    'balloonText': `<b>${key}: [[value]]</b>`,
+                    'fillAlphas': 0.75,
+                    'title': key,
+                    'valueField': key
+                });
+
+                values.push({
+                    'id': key,
+                    'position': 'left',
+                    'stackType': 'regular',
+                    'axisColor': '#ffffff',
+                    'gridColor': '#ffffff'
+                });
+            }
+
+            var h2 = document.createElement('h3');
+            h2.className = 'k-title';
+            h2.textContent = widget.graph.name;
+            monitoring.appendChild(h2);
+
+            var div = document.createElement('div');
+            div.className = 'k-block';
+            div.style.height = '200px';
+            monitoring.appendChild(div);
+
+            GRAPHS.makeChart(div, widget.graph.data, graphs, values);
+        }
+    });
+</script>
+
+</div>
