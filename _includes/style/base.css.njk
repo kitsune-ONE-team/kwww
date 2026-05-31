@@ -1,0 +1,242 @@
+{# vim: set ft=css: #}
+
+body {
+    background-color: {{bg_body}};
+    color: #fff;
+    font-family: "Rubik", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+a { color: {{fg_link}}; text-decoration: none; }
+a:hover { color: {{fg_link_hover}}; }
+a, a:hover { transition: color .25s ease; }
+p { margin: 0; }
+
+h2 { font-size: 24px; font-weight: 600; text-transform: uppercase; }
+h3 { font-size: 18px; font-weight: 500; }
+h2, h3 { margin: 0; }
+/* h2, h3, .k-heading { margin: 0 0 24px 0; } */
+
+.k-section h2::before {
+    content: "\2014";
+    color: {{col_pri1}};
+    margin-right: 8px;
+}
+
+.k-section ul { margin: 0; padding: 0; list-style: none; }
+.k-section li { margin: 0; padding: 0; }
+
+.k-section li::before {
+    content: "\2605";
+    color: {{col_pri1}};
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+::-moz-selection {
+    background: {{col_pri1}};
+    color: #fff;
+}
+
+::selection {
+    background: {{col_pri1}};
+    color: #fff;
+}
+
+{# HELPERS #}
+
+.k-align-bottom-left { position: absolute; bottom: 0; left: 0; }
+.k-align-bottom-right { position: absolute; bottom: 0; right: 0; }
+.k-aligner { position: relative; }
+.k-bg-button { background: {{col_gray0}}; }
+.k-bg-dark { background: {{col_gray2}}; }
+.k-bg-darker { background: {{col_gray1}}; }
+.k-bg-light { background: {{col_gray3}}; }
+.k-bg-lighter { background: {{col_gray4}}; }
+.k-bg-lightest { background: #fff; }
+.k-bg-widget { background: #212520; }
+.k-clear { clear: both; }
+.k-color { color: {{col_pri1}}; }
+.k-danger { background: {{col_red1}}; }
+.k-fg-darkest { color: #161e21; }
+.k-flow-1st { float: left; width: 50%; }
+.k-flow-2nd { float: left; margin-left: -50%; width: 100%; }
+.k-heading { margin-bottom: 32px; }
+.k-hidden { display: none; }
+.k-hor-center { margin: 0 auto; }
+.k-hor-center-inside { text-align: center; }
+.k-hor-left-inside { text-align: left; }
+.k-hor-right-inside { text-align: right; }
+.k-icon-small { display: inline-block; width: 24px; text-align: center; }
+.k-icon-big { font-size: 48px; }
+.k-invisible { opacity: 0; }
+.k-left { float: left; }
+.k-lower { text-transform: lowercase; }
+.k-mar-box { margin: 8px; }
+.k-packed { display: inline-block; }
+.k-pad-box { padding: 16px; }
+.k-right { float: right; }
+.k-rounded { border-radius: 4px; }
+.k-spacer { background: {{bg_body}}; position: relative; z-index: -10; }
+.k-stacked { float: left; margin: 16px 8px 0 8px; display: inline-block; }
+.k-title { margin-top: 16px; }
+.k-upper { text-transform: uppercase; }
+.k-ver-expand { height: 100%; }
+.k-ver-long { height: 200px; min-height: 400px; }
+.k-ver-medium { height: 200px; min-height: 200px; }
+.k-ver-middle { vertical-align: middle; }
+.k-ver-middler { display: inline-block; height: 100%; vertical-align: middle; }
+.k-ver-short { height: 150px; min-height: 150px; }
+
+.fab.k-icon-big { font-size: 48px; }
+.fas.k-icon-big { font-size: 48px; }
+
+{# CONTAINER #}
+
+.k-container-outer { min-width: 500px; }
+
+{# TOPBAR #}
+
+.k-topbar {
+    background: {{col_gray2}};
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px 0 32px;
+    vertical-align: middle;
+}
+
+.k-topbar .k-tooltip { margin: 0 8px; }
+
+.k-topbar a,
+.k-topbar a:hover {
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.k-topbar .k-icon a { color: #fff; }
+.k-topbar .k-icon a:hover { color: {{col_pri3}}; }
+
+/* .k-topbar .k-linkbar a { color: {{link}}; margin: 0 8px; } */
+/* .k-topbar .k-linkbar a:hover { color: {{link_hover}}; } */
+/* .k-topbar .k-linkbar i { margin: 0 4px; } */
+
+{# MENUBAR #}
+
+.k-menubar { padding: 0 32px 0 32px; }
+
+.k-menubar,
+.k-ver-menubar {
+    background: {{col_gray3}};
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.k-menubar .k-logo { float: left; height: 70px; }
+.k-menubar .k-menu { float: right; }
+.k-ver-menubar .k-menu { float: left; width: 300px; }
+.k-menubar img, .k-ver-menubar img { vertical-align: middle; }
+.k-menubar ul, .k-ver-menubar ul { margin: 0; padding: 0; list-style: none; }
+.k-menubar li { display: inline-block; margin: 0 4px 0 4px; padding: 0; }
+.k-ver-menubar li { display: block; margin: 0 0 4px 0; padding: 0; }
+.k-menubar li::before, .k-ver-menubar li::before { content: ""; margin: 0; }
+
+.k-menubar li a,
+.k-ver-menubar li a {
+    color: #fff;
+    padding: 0 16px 0 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color .5s ease, color .5s ease;
+}
+
+.k-menubar li a {
+    border-bottom: 2px solid {{col_gray3}};
+    border-top: 2px solid {{col_gray3}};
+    display: inline-block;
+    height: 70px;
+    line-height: 70px;
+}
+
+.k-ver-menubar li a {
+    border-left: 2px solid {{col_gray3}};
+    border-right: 2px solid {{col_gray3}};
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+.k-menubar li a.k-active,
+.k-menubar li a:hover {
+    border-top: 2px solid {{col_gray3}};
+    border-bottom: 2px solid {{col_pri3}};
+    color: {{col_pri3}};
+    transition: border-color .25s ease, color .25s ease;
+}
+
+.k-ver-menubar li a.k-active,
+.k-ver-menubar li a:hover {
+    background: {{col_gray4}};
+    border-left: 2px solid {{col_gray4}};
+    border-right: 2px solid {{col_pri3}};
+    color: {{col_pri3}};
+    transition: .25s ease, color .25s ease;
+}
+
+.k-menubar li a.k-disabled,
+.k-menubar li a.k-disabled:hover,
+.k-ver-menubar li a.k-disabled,
+.k-ver-menubar li a.k-disabled:hover {
+    /* background: inherit; */
+    /* border: inherit; */
+    color: {{col_gray5}};
+}
+
+.k-menubar li .k-menu a,
+.k-menubar li .k-menu a.k-active,
+.k-menubar li .k-menu a:hover,
+.k-ver-menubar li .k-menu a,
+.k-ver-menubar li .k-menu a.k-active,
+.k-ver-menubar li .k-menu a:hover {
+    background: inherit;
+    border: inherit;
+}
+
+{# SECTION #}
+
+.k-section { padding: 24px 32px 24px 32px; }
+
+.k-section.k-bg-overlay {
+    background: linear-gradient(
+        to right top,
+        {{col_pri4|rgba(0.3)}} 0%,
+        {{col_sec4|rgba(0.3)}} 100%);
+    height: 400px;
+    /* z-index: -50; */
+}
+
+.k-section.k-bg-kitsune {
+    background-attachment: fixed;
+    background-image: url("/image/ui/05_02_horizontal_no_sign.jpeg");
+    background-position: center top -50px;
+    background-size: 1300px;
+    height: 400px;
+    position: relative;
+    transition: background .25s ease,
+                height .25s ease;
+}
+
+.k-section.k-bg-kitsune p {
+    transition: display .25s ease,
+                opacity .25s ease,
+                visibility .25s ease;
+}
+
+.k-compact .k-section.k-bg-kitsune { background-position: center top -275px; height: 150px; }
+.k-compact .k-section.k-bg-kitsune p { opacity: 0; visibility: hidden; }
+
+#k-content {
+    transition: opacity .25s ease;
+}

@@ -1,0 +1,163 @@
+{# vim: set ft=css: #}
+
+{# ICON LINK #}
+
+.k-ilink { margin-right: 16px; }
+.k-ilink i { margin: 0 4px 0 0; }
+.k-rlink { margin-left: 16px; }
+
+{# BUTTONS #}
+
+.k-button {
+    background: {{col_gray0}};
+    border-radius: 2px;
+    border: 0;
+    /* color: {{col_pri4}}; */
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 40px;
+    padding: 0 16px;
+    text-decoration: none;
+    cursor: default;
+}
+
+.k-button:hover {
+    background: {{col_pri1}};
+    box-shadow: 0 0 16px 4px {{col_pri1|rgba(0.25)}};
+    color: #fff;
+}
+
+.k-button,
+.k-button:hover {
+    transition: border-color .2s ease,
+                box-shadow .2s ease,
+                background .2s ease,
+                color .2s ease;
+}
+
+.k-button i { margin: 0 4px; }
+
+.k-media-content .k-button { margin: 16px; }
+
+{# DANGER BUTTONS #}
+
+.k-button.k-danger {
+    /* background: {{col_red1}}; */
+    color: {{col_red2}}
+}
+
+.k-button.k-danger:hover {
+    background: {{col_red1}};
+    box-shadow: 0 0 16px 4px {{col_red1|rgba(0.25)}};
+    color: #fff;
+}
+
+{# ICON #}
+
+.k-icon {
+    display: inline-block;
+    width: 64;
+    height: 64;
+    margin: 0 16px;
+}
+
+.k-icon a {
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+{# VIDEO #}
+
+.k-video-bg {
+    background: #000;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -50;
+}
+
+.k-video-bg video {
+    width: 100%;
+}
+
+{# TOOLTIP #}
+
+.k-tooltip { position: relative; }
+
+.k-tooltip::before,
+.k-tooltip::after {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.k-tooltip:hover::before,
+.k-tooltip:hover::after {
+    opacity: 1;
+    transition: opacity .25s ease;
+}
+
+{# tooltip box #}
+.k-tooltip::before {
+    background: {{col_pri1}};
+    border-radius: 5px;
+    color: #fff;
+    content: attr(data-tooltip);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 32px;
+    padding: 0 10px;
+    position: absolute;
+    right: 50%;
+    text-transform: uppercase;
+    top: {{22+8}}px;
+    transform: translateX(50%);
+    white-space: pre;
+    z-index: 100;
+}
+
+{# tooltip top arrow #}
+.k-tooltip::after {
+    border-bottom: 8px solid {{col_pri1}};
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: {{"22"}}px;
+    transform: translateX(50%);
+    z-index: 100;
+}
+
+{# TABS #}
+
+.k-tabs { border-radius: 8px; width: {{536+64}}px; }
+.k-tabs label, .k-tabs > .k-button, .k-tabs .k-label { display: inline-block; }
+.k-tabs label, .k-tabs > .k-button { transform: skew(-15deg); }  {# whole widget #}
+.k-tabs .k-label { transform: skew(15deg); }  {# label text #}
+.k-tabs input { display: none; }
+.k-tabs input:checked + label + .k-tab { display: block; }
+.k-tabs iframe { border: 0; }
+
+.k-tabs input:checked + label.k-button,
+.k-tabs > .k-button.k-active {
+    background: #b300ff;
+    box-shadow: 0 0 10px 3px rgba(179, 0, 255, 0.25);
+}
+
+.k-tabs .k-tab {
+    /* margin-top: 4px; */
+    border-top: 4px solid {{col_gray3}};
+    display: none;
+    float: left;
+    position: relative;
+    width: 536px;
+    padding: 24px 32px;
+}

@@ -1,0 +1,46 @@
+{# vim: set ft=css: #}
+
+{# NARROW, UP TO 750px #}
+
+@media screen {
+    .k-flow-1st { width: 100%; }
+    .k-flow-2nd { margin-left: 0; }
+    .k-menubar .k-menu { float: left; }  {# move menu to the left below logo #}
+    .k-panel.k-one-third, .k-panel.k-one-second { width: 97%; }
+    .k-panel.k-one-quarter { width: 48%; }
+}
+
+{# MEDIUM, 750-1000px #}
+
+@media screen and (min-width: 750px) {
+    .k-flow-1st { width: 50%; }
+    .k-flow-2nd { margin-left: 0; }
+    .k-menubar .k-menu { float: right; }
+    .k-panel.k-one-third, .k-panel.k-one-second { width: 97%; }
+    .k-panel.k-one-quarter { width: 48%; }
+}
+
+{# WIDE, 1000-1350px #}
+
+@media screen and (min-width: 1000px) {
+    .k-flow-1st { width: 50%; }
+    .k-flow-2nd { margin-left: -50%; }
+    .k-menubar .k-menu { float: right; }
+    .k-panel.k-one-third, .k-panel.k-one-second { width: 48%; }
+    .k-panel.k-one-quarter { width: 31%; }
+}
+
+{# ULTRAWIDE, FROM 1350px #}
+
+@media screen and (min-width: 1350px) {
+    .k-container-inner { box-shadow: 0 0 20px rgba(0, 0, 0, 1); }
+    .k-container-outer { margin: 0 auto; width: 1300px; }
+    .k-flow-1st { width: 50%; }
+    .k-flow-2nd { margin-left: -50%; }
+    .k-menubar .k-menu { float: right; }
+    .k-panel.k-one-third { width: 31%; }
+    .k-panel.k-one-second { width: 48%; }
+    .k-panel.k-one-quarter { width: 23%; }
+    .k-spacer { height: 20px; }  {# top and bottom page margin #}
+    .k-video-bg { margin: 0 auto; width: 1300px; }
+}

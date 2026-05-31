@@ -1,0 +1,24 @@
+<!-- vim: set ft=html: -->
+
+<div class="k-menubar" id="k-menubar">
+    <div class="k-logo">
+        <span class="k-ver-middler"></span>
+        <a href="/" class="k-clickable">
+            <img alt="kitsune.ONE Logo" class="k-ver-middle" width="288" height="48"
+                 src="/image/ui/kitsune_one.png" />
+        </a>
+    </div>
+
+    <div class="k-menu">
+        <ul>
+            {% for item in menubar %}<li>
+                <a class="k-clickable {% if item.url == page.url %}k-active{% endif %}"
+                   href="{{item.url}}{{index}}">
+                    {{item.label}}
+                </a>
+            </li>{% endfor %}
+        </ul>
+    </div>
+
+    <div class="k-clear"></div>
+</div>

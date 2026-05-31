@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- vim: set ft=html: -->
+<html lang="en">
+    <head>
+        {% include "head.njk" %}
+    </head>
+    <body>
+
+        <div class="k-container-outer">
+            <div class="k-spacer"></div>
+            <div class="k-container-inner">
+                {% include "topbar.njk" %}
+                {% include "k/menubar.njk" %}
+                {{ content | safe }}
+                {% include "footer.njk" %}
+            </div>
+            <div class="k-spacer"></div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/2.0.7/htmx.min.js" integrity="sha512-IisGoumHahmfNIhP4wUV3OhgQZaaDBuD6IG4XlyjT77IUkwreZL3T3afO4xXuDanSalZ57Un+UlAbarQjNZCTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/spa-htmx.js"></script>
+        {# <script src="/spa.js"></script> #}
+    </body>
+</html>

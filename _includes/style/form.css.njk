@@ -1,0 +1,151 @@
+{# vim: set ft=css: #}
+
+.k-form { width: 500px; padding: 16px 32px; border-radius: 4px; }
+
+/* .k-form a { margin: 0 16px 0 0; } */
+.k-form i { margin-right: 4px; }
+
+.k-form fieldset {
+    border: 0;
+    margin: 0 0 16px 0;
+    padding: 0;
+    text-align: right;
+    position: relative;
+}
+
+.k-form fieldset.k-submit {
+    margin: 16px 0 0 0;
+}
+
+.k-form label {
+    /* display: inline-block; */
+    text-align: right;
+    /* text-transform: uppercase; */
+    font-weight: 500;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.k-form .k-hor-center-inside { text-align: center; }
+
+{# INPUTS #}
+
+.k-form input[type="text"],
+.k-form input[type="password"],
+.k-form select,
+.k-form textarea {
+    background: #fff;
+    border-radius: 2px;
+    border: 2px solid {{fg_link}};
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    padding: 8px 12px;
+    transition: border .25s ease;
+    width: 60%;
+}
+
+.k-form .k-checkbox,
+.k-form .k-file,
+.k-form .k-range {
+    width: 60%; display: inline-block;
+}
+
+.k-form .k-checkbox { text-align: left; }
+
+.k-form .k-file input[type="text"] { width: 70%; }
+.k-form .k-file input[type="file"] {
+    box-sizing: border-box;
+    width: 25%;
+}
+
+.k-form .k-range input[type="text"] { width: 25%; }
+.k-form .k-range input[type="range"] {
+    box-sizing: border-box;
+    vertical-align: middle;
+    width: 70%;
+}
+
+#adcopy-outer { display: inline-block; }
+#adcopy-outer #adcopy_response { padding: 0; }
+
+.k-form input[type="text"]:focus,
+.k-form input[type="text"]:hover,
+.k-form input[type="password"]:focus,
+.k-form input[type="password"]:hover,
+.k-form select:focus,
+.k-form select:hover,
+.k-form textarea:focus,
+.k-form textarea:hover {
+    border: 2px solid {{fg_link_hover}};
+}
+
+.k-form input[type="text"],
+.k-form input[type="text"]:focus,
+.k-form input[type="text"]:hover,
+.k-form input[type="password"],
+.k-form input[type="password"]:focus,
+.k-form input[type="password"]:hover,
+.k-form select,
+.k-form select:focus,
+.k-form select:hover,
+.k-form textarea,
+.k-form textarea:focus,
+.k-form textarea:hover {
+    transition: border .25s ease;
+}
+
+.k-form input[readonly="readonly"] {
+    background: #ccd;
+    color: #666;
+}
+
+.k-form input[type="submit"] {
+    height: 40px;
+}
+
+{# ERROR #}
+
+{# error box #}
+.k-form fieldset.k-info::before,
+.k-form fieldset.k-error::before {
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    left: 100%;
+    line-height: 32px;
+    margin-left: {{8+8}}px;
+    padding: 0 16px;
+    position: absolute;
+    white-space: pre;
+    z-index: 100;
+}
+
+.k-form fieldset.k-info::before { background-color: {{col_green1}}; content: attr(data-info); }
+.k-form fieldset.k-error::before { background-color: {{col_red1}}; content: attr(data-error); }
+
+{# error left arrow #}
+.k-form fieldset.k-info::after,
+.k-form fieldset.k-error::after {
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+    content: "";
+    left: 100%;
+    position: absolute;
+    top: 4px;
+    margin-left: 8px;
+    transform: translateY(50%);
+    z-index: 100;
+}
+
+.k-form fieldset.k-info::after { border-right: 8px solid {{col_green1}}; }
+.k-form fieldset.k-error::after { border-right: 8px solid {{col_red1}}; }
+
+.k-field,
+.k-form fieldset,
+.k-form fieldset.k-info::before,
+.k-form fieldset.k-error::before {
+    line-height: 40px;
+    /* height: 40px; */
+}

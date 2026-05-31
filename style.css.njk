@@ -1,0 +1,45 @@
+---
+# vim: set ft=css:
+permalink: style.css
+
+# set palette from dark to bright
+# GoodGames grays palette
+col_gray0: '#161e21'  # icons extra
+col_gray1: '#181C23'  # body
+col_gray2: '#292E38'  # bg primary
+col_gray3: '#2F3541'  # bg secondary
+col_gray4: '#3F4655'  # light bg
+col_gray5: '#a0a7ab'  # gray text
+
+# theme primary color
+col_pri1: '#b300ff'
+col_pri2: '#a200cc'
+col_pri3: '#d980ff'
+col_pri4: '#7c69e3'
+
+# theme secondary color
+col_sec1: '#ffffff'
+col_sec2: '#ffffff'
+col_sec3: '#80d4ff'
+col_sec4: '#3dd0d8'
+
+col_red1: '#cc0000'
+col_red2: '#ff4444'
+
+col_green1: '#00cc00'
+col_green2: '#44ff44'
+
+# widget colors
+bg_body: '#181C23'  # col_gray1
+fg_link: '#d980ff'  # col_pri3
+fg_link_hover: '#80d4ff'  # col_sec3
+---
+
+{% include "style/base.css.njk" %}
+{% include "style/form.css.njk" %}
+{% include "style/table.css.njk" %}
+{% include "style/containers.css.njk" %}
+{% include "style/widgets.css.njk" %}
+{% include "style/mods.css.njk" %}
+{% include "style/screen.css.njk" %}
+{% include "style/altcha.css.njk" %}
