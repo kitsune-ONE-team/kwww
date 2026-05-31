@@ -1,0 +1,17 @@
+{
+    "name": "kwww",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "server": "npx @11ty/eleventy --watch --serve --output=_site_live",
+        "build": "npx @11ty/eleventy"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "@11ty/eleventy": "^3.1.5"
+    }
+}
