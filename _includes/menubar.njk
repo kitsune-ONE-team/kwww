@@ -13,7 +13,7 @@
         <ul>
             {% for item in menubar %}<li>
                 <a class="k-clickable {% if item.url == page.url %}k-active{% endif %}"
-                   href="{{item.url}}{{index}}">
+                   href="{{item.url}}{{config.index}}">
                     {{item.label}}
                 </a>
             </li>{% endfor %}

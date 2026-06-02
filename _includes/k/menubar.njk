@@ -3,7 +3,7 @@
 <div class="k-menubar" id="k-menubar">
     <div class="k-logo">
         <span class="k-ver-middler"></span>
-        <a href="/k/{{index}}" class="k-clickable">
+        <a href="/k/{{config.index}}" class="k-clickable">
             <img alt="KITSUNETSUKI project Logo" class="k-ver-middle" height="64"
                  src="/image/ui/icon_64.png" />
         </a>
@@ -13,8 +13,8 @@
         <ul>
             {% for item in menubar_k %}<li>
                 <a class="k-clickable {% if item.url == page.url %}k-active{% endif %}"
-                   href="{{item.url}}{{index}}"
-                   hx-get="{{item.url}}{{index}}" hx-push-url="true"
+                   href="{{item.url}}{{config.index}}"
+                   hx-get="{{item.url}}{{config.index}}" hx-push-url="true"
                    hx-target="#k-content" hx-select="#k-content"
                    @click="return false">
                     {{item.label}}
