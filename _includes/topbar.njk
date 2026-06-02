@@ -40,27 +40,28 @@
 
         {# DONATIONS #}
         <span class="k-tooltip" data-tooltip="Donate">
-            <a href="/k/donate/{{index}}"><i class="fa-brands fa-bitcoin"></i></a>
+            <a href="/k/donate/{{config.index}}"><i class="fa-brands fa-bitcoin"></i></a>
         </span>
     </div>
 
-    <!-- <div class="k-linkbar k-right"> -->
-    <!--     {{request__user}} -->
-    <!--     <a class="k-ilink k-clickable" href="/dashboard/"> -->
-    <!--         <i class="fas fa-user"></i> -->
-    <!--         {{displayname}} -->
-    <!--     </a> -->
-    <!--     <a class="k-ilink" href="/auth/logout/"> -->
-    <!--         <i class="fas fa-sign-out-alt"></i> -->
-    <!--         Logout -->
-    <!--     </a> -->
-    <!--     {{request__user}} -->
-    <!--     {{request__user}} -->
-    <!--     <a class="k-ilink k-clickable" href="/auth/login/"> -->
-    <!--         <i class="fas fa-sign-in-alt"></i> -->
-    <!--         Login / Sign Up -->
-    <!--     </a> -->
-    <!--     {{request__user}} -->
-    <!-- </div>
-    <!-- k-linkbar -->
-</div>  <!-- k-topbar -->
+    <div id="loggedin" class="k-linkbar k-right k-hidden">
+        <a class="k-ilink" href="/dashboard/">
+            <i class="fas fa-user"></i>
+            <span id="username"></span>
+        </a>
+        <a class="k-ilink" href="/auth/logout/">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </a>
+    </div>
+    <div id="anonymous" class="k-linkbar k-right k-hidden">
+        <a class="k-ilink" href="/login/{{config.index}}">
+            <i class="fas fa-sign-in-alt"></i>
+            Login / Sign Up
+        </a>
+    </div>
+</div>
+
+<script>
+    {% include 'js/me.js.njk' %}
+</script>
