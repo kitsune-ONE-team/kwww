@@ -1,0 +1,72 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Login
+---
+
+<div id="k-content">
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">Login with password</h2>
+
+        <form id="login" class="k-form k-submitable k-bg-lighter k-hor-center" method="post"
+              action="{{config.api}}one/login/"
+              hx-post="{{config.api}}one/login/"
+              hx-request='{"credentials": true}'
+              hx-ext="json-enc">
+            <p class="k-hor-center-inside">
+                <img alt="kitsune.ONE Team Logo" width="128" src="/image/icon/favicon_512.png" />
+            </p>
+
+            <fieldset for="username">
+                <label for="username">Login:</label>
+                <input id="username" name="username" type="text" />
+            </fieldset>
+
+            <fieldset for="password">
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" />
+            </fieldset>
+
+            <fieldset class="k-submit">
+                <div class="k-left">
+                    <a class="k-ilink" href="/signup/{{config.index}}">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </a>
+                    <a class="k-ilink k-clickable" href="/auth/reset/">
+                        <i class="fas fa-key"></i> Reset Password
+                    </a>
+                </div>
+                <input class="k-button k-right" type="submit" value="Login" />
+            </fieldset>
+        </form>
+
+        <div class="k-clear"></div>
+    </div>
+
+    <div class="k-section k-bg-light">
+        <h2 class="k-flow-1st">Login with social</h2>
+        <div class="k-flow-2nd">
+            <div class="k-hor-center-inside">
+                <div class="k-icon">
+                    <span class="k-ver-middler"></span>
+                    <a href="/auth/login/gamejolt/" class="k-clickable">
+                        <img class="k-ver-middle" width="32" height="32"
+                             src="/image/logo/gamejolt-bolt-white-4x.d54b82f8.png" />
+                    </a>
+                </div>
+
+                <div class="k-icon">
+                    <span class="k-ver-middler"></span>
+                    <a href="{{itch_oauth_url}}" class="ficon itchio">
+                        <img class="k-ver-middle" width="40" height="36"
+                             src="/image/logo/itchio-logo-textless-white.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+</div>
+
+<script src="/login.js"></script>

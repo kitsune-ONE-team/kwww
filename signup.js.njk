@@ -1,0 +1,25 @@
+---
+# vim: set ft=javascript:
+permalink: signup.js
+---
+
+function signup(event) {
+    const response = JSON.parse(event.detail.xhr.response);
+
+    event.target.querySelectorAll('fieldset').forEach(fieldset => {
+        for (error of response.detail) {
+            if (error.loc[error.loc.length - 1] === fieldset.getAttribute('for')) {
+                fieldset.classList.add('k-error');
+                fieldset.setAttribute('data-error', error.msg);
+                return;
+            }
+        }
+        fieldset.classList.remove('k-error');
+    })
+
+    if (event.detail.successful)
+        document.location.href = '/';
+
+}
+
+document.getElementById('signup').addEventListener('htmx:afterRequest', signup);

@@ -1,0 +1,70 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Sign Up
+---
+
+<script src="https://cdn.jsdelivr.net/npm/altcha@3.0.10/dist/main/altcha.min.js"></script>
+
+<div id="k-content">
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">Sign Up</h2>
+
+        <form id="signup" class="k-form k-submitable k-bg-lighter k-hor-center" method="post"
+              action="{{config.api}}one/signup/"
+              hx-post="{{config.api}}one/signup/"
+              hx-request='{"credentials": true}'
+              hx-ext="json-enc">
+            <p class="k-hor-center-inside">
+                <img alt="kitsune.ONE Team Logo" width="128" src="/image/icon/favicon_512.png" />
+            </p>
+
+            <fieldset for="username">
+                <label for="username">Login:</label>
+                <input id="username" type="text" name="username" />
+            </fieldset>
+
+            <fieldset for="email">
+                <label for="email">E-Mail:</label>
+                <input id="email" type="text" name="email" />
+            </fieldset>
+
+            <fieldset for="password">
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" />
+            </fieldset>
+
+            <fieldset for="password2">
+                <label for="password2">Retype password:</label>
+                <input id="password2" type="password" name="password2" />
+            </fieldset>
+
+            {% if config.use_altcha %}
+                <fieldset for="altcha">
+                    <div class="k-checkbox">
+                        <altcha-widget
+                            name="solution" type="switch"
+                            challenge="{{config.api}}one/challenge/">
+                        </altcha-widget>
+                    </div>
+                </fieldset>
+            {% endif %}
+
+            <fieldset class="k-submit">
+                <div class="k-left">
+                    <a class="k-ilink" href="/login/{{config.index}}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                    <a class="k-ilink" href="/auth/reset/">
+                        <i class="fas fa-key"></i> Reset Password
+                    </a>
+                </div>
+                <input class="k-button k-right" type="submit" value="Sign Up" />
+            </fieldset>
+        </form>
+
+        <div class="k-clear"></div>
+    </div>
+</div>
+
+<script src="/signup.js"></script>
