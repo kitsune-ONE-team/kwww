@@ -1,0 +1,26 @@
+// vim: set ft=javascript:
+
+async function user() {
+    const loggedin = document.getElementById('loggedin');
+    const anonymous = document.getElementById('anonymous');
+
+    const response = await fetch('{{config.api}}one/me/', {
+        credentials: 'include',
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.user.is_authenticated) {
+            loggedin.classList.remove('k-hidden');
+            anonymous.classList.add('k-hidden');
+            document.getElementById('username').innerHTML = data.user.displayname;
+        } else {
+            loggedin.classList.add('k-hidden');
+            anonymous.classList.remove('k-hidden');
+        }
+    } else {
+        loggedin.classList.add('k-hidden');
+        anonymous.classList.add('k-hidden');
+    }
+}
+
+user();

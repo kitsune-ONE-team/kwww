@@ -1,6 +1,6 @@
 ---
 # vim: set ft=javascript:
-permalink: spa-htmx.js
+permalink: k.js
 ---
 
 function crypto(name, address) {
@@ -17,7 +17,7 @@ function crypto(name, address) {
     qrcode.style.display = 'inline-block'; 
 }
 
-function spa() {
+function init() {
     document.querySelectorAll('.k-menu .k-clickable').forEach(link => {
         if (link.getAttribute('href') === window.location.pathname) {
             link.classList.add('k-active');
@@ -26,7 +26,7 @@ function spa() {
         }
     });
 
-    const middle = document.querySelector('#k-middle');
+    const middle = document.getElementById('k-middle');
     if (window.location.pathname === '/k/' || window.location.pathname === '/k/index.html') {
         middle.classList.remove('k-compact');
     } else {
@@ -39,5 +39,5 @@ function spa() {
     }
 }
 
-document.body.addEventListener('htmx:afterSwap', spa);
-spa();
+document.body.addEventListener('htmx:afterSwap', init);
+init();
