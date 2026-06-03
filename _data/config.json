@@ -1,5 +1,0 @@
-{
-    "index": "index.html",
-    "api": "http://localhost:8000/api/",
-    "use_altcha": true
-}
