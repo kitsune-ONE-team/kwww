@@ -19,7 +19,6 @@ function login(event) {
 
     if (event.detail.successful)
         document.location.href = '/';
-
 }
 
 document.getElementById('login').addEventListener('htmx:afterRequest', login);

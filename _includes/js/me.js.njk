@@ -23,4 +23,10 @@ async function user() {
     }
 }
 
+function logout(event) {
+    if (event.detail.successful)
+        document.location.href = '/';
+}
+
 user();
+document.getElementById('logout').addEventListener('htmx:afterRequest', logout);

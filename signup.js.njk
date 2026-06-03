@@ -19,7 +19,6 @@ function signup(event) {
 
     if (event.detail.successful)
         document.location.href = '/';
-
 }
 
 document.getElementById('signup').addEventListener('htmx:afterRequest', signup);
