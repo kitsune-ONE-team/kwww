@@ -1,6 +1,6 @@
 // vim: set ft=javascript:
 
-async function user() {
+async function me() {
     const loggedin = document.getElementById('loggedin');
     const anonymous = document.getElementById('anonymous');
 
@@ -23,10 +23,5 @@ async function user() {
     }
 }
 
-function logout(event) {
-    if (event.detail.successful)
-        document.location.href = '/';
-}
-
-user();
-document.getElementById('logout').addEventListener('htmx:afterRequest', logout);
+document.getElementById('logout').addEventListener('htmx:afterRequest', me);
+me();
