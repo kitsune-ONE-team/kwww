@@ -1,0 +1,45 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Login
+---
+
+<div id="k-content">
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">Login with GameJolt</h2>
+
+        <form id="login" class="k-form k-submitable k-bg-lighter k-hor-center" method="post"
+              action="{{config.api}}gamejolt/login/"
+              hx-post="{{config.api}}gamejolt/login/"
+              hx-request='{"credentials": true}'
+              hx-ext="json-enc">
+            <p class="k-hor-center-inside">
+                <img alt="GameJolt Logo" width="328" height="36"
+                     src="/image/ui/gamejolt-logo-dark-2x.483b3821.png" />
+            </p>
+
+            <p class="k-heading k-hor-center-inside">
+                Enter your GameJolt username and
+                <strong>game token</strong> (not a password).
+            </p>
+
+            <fieldset for="username">
+                <label for="username">Login:</label>
+                <input id="username" name="username" type="text" />
+            </fieldset>
+
+            <fieldset for="token">
+                <label for="token">Game Token:</label>
+                <input id="token" name="token" type="password" />
+            </fieldset>
+
+            <fieldset class="k-submit">
+                <input class="k-button k-right" type="submit" value="Login" />
+            </fieldset>
+        </form>
+
+        <div class="k-clear"></div>
+    </div>
+</div>
+
+<script src="/login.js"></script>
