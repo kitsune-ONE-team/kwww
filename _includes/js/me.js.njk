@@ -4,7 +4,7 @@ async function me() {
     const loggedin = document.getElementById('loggedin');
     const anonymous = document.getElementById('anonymous');
 
-    const response = await fetch('{{config.api}}one/me/', {
+    const response = await fetch('{{config.api}}/one/me/', {
         credentials: 'include',
     });
     if (response.ok) {

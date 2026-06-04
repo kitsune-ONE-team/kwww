@@ -3,7 +3,7 @@ export default function() {
 
     const config = {
         index: 'index.html',
-        api: build ? 'https://den.kitsune.one/api/' : 'http://localhost:8000/api/',
+        api: build ? 'https://den.kitsune.one/api' : 'http://localhost:8000/api',
         use_altcha: true,
     }
     return config;

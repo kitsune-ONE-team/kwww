@@ -5,10 +5,9 @@ export default function (eleventyConfig) {
 	// Copy `image/` to `_site/image/`
 	eleventyConfig.addPassthroughCopy('image');
 
-    // Watch dirs
-	// eleventyConfig.addWatchTarget('./');
-	// eleventyConfig.addWatchTarget('./k/');
-	// eleventyConfig.addWatchTarget('./_includes/');
+    eleventyConfig.addFilter('urlencode', (params) => {
+        return new URLSearchParams(params).toString();
+    });
 
     // Helper function to convert hex color to rgba
     eleventyConfig.addFilter('rgba', function(hex, alpha = 1) {

@@ -1,0 +1,27 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Login
+---
+
+<div id="k-content">
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">Login with itch.io</h2>
+
+        <div class="k-form k-submitable k-bg-lighter k-hor-center">
+            <p class="k-hor-center-inside">
+                <img alt="itch.io Logo" width="64" src="/image/logo/itchio-logo-textless-white.png" />
+            </p>
+        </form>
+
+        <div class="k-clear"></div>
+    </div>
+</div>
+
+<script>
+    var hash = window.location.hash.slice(1);
+    window.location.hash = '';
+    console.log(`{{config.api}}/itch/login/?${hash}`);
+    window.location = `{{config.api}}/itch/login/?${hash}`;
+</script>
+
