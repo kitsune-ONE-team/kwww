@@ -1,0 +1,48 @@
+---
+# vim: set ft=javascript:
+permalink: dashboard.js
+---
+
+async function dashboard() {
+    const profile = document.getElementById('profile');
+
+    const response = await fetch('{{config.api}}/dashboard/', {
+        credentials: 'include',
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.user.is_authenticated) {
+            profile.querySelector('.k-username').innerHTML = data.user.displayname;
+            for (name of ['gamejolt', 'itch']) {
+                const widget = document.getElementById(name);
+                if (data[name]) {
+                    widget.querySelector('.k-connect').classList.add('k-hidden');
+                    widget.querySelector('.k-disconnect').classList.remove('k-hidden');
+                } else {
+                    widget.querySelector('.k-disconnect').classList.add('k-hidden');
+                    widget.querySelector('.k-connect').classList.remove('k-hidden');
+                }
+            }
+            return;
+        }
+    }
+
+    document.location.href = '/login/{{config.index}}';
+}
+
+function on_delete(event) {
+    if (event.detail.successful) {
+        document.location.href = '/dashboard/{{config.index}}';
+        return;
+    }
+}
+
+function bind_delete() {
+    for (name of ['gamejolt', 'itch']) {
+        const widget = document.getElementById(name);
+        widget.querySelector('.k-disconnect form').addEventListener('htmx:afterRequest', on_delete);
+    }
+}
+
+bind_delete();
+dashboard();

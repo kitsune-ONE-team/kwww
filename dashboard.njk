@@ -1,0 +1,80 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Dashboard
+---
+
+<div id="k-content">
+    <div class="k-section k-bg-dark">
+        <h2 class="k-heading">Profile</h2>
+
+        <div id="profile" class="k-panel k-one-second k-bg-lighter k-hor-center">
+            <div class="k-media-image">
+                <img alt="Avatar" width="100" height="100" src="/image/ui/avatar.png" />
+            </div>
+            <div class="k-media-content">
+                <div class="k-pad-box">
+                    <h3 class="k-username">&nbsp;</h3>
+                    <!-- <a class="k-ilink k-clickable" href="/dashboard/profile/{{config.index}}"> -->
+                    <!--     <i class="fas fa-user"></i> -->
+                    <!--     Edit Profile -->
+                    <!-- </a> -->
+                    <!-- <a class="k-ilink k-clickable" href="/dashboard/password/{{config.index}}"> -->
+                    <!--     <i class="fas fa-key"></i> -->
+                    <!--     Change Password -->
+                    <!-- </a> -->
+                    <!-- <a class="k-ilink k-clickable" href="/dashboard/remove/{{config.index}}"> -->
+                    <!--     <i class="fas fa-user-times"></i> -->
+                    <!--     Remove Account -->
+                    <!-- </a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+
+    <div class="k-section k-bg-light k-hor-center">
+        <h2>Connections</h2>
+
+        <div id="gamejolt" class="k-panel k-title k-one-second k-bg-lighter k-hor-center k-buttonbar">
+            <div class="k-left">
+                <img class="k-ver-middler k-icon" alt="Icon" width="24" height="24" src="/image/logo/gamejolt-bolt-white-4x.d54b82f8.png" />
+                <strong>GameJolt</strong>
+            </div>
+            <div class="k-right k-connect k-hidden">
+                <a class="k-button" href="/login/gamejolt/{{config.index}}">Connect</a>
+            </div>
+            <div class="k-right k-disconnect k-hidden">
+                <form action="{{config.api}}/dashboard/gamejolt/" method="post"
+                      hx-delete="{{config.api}}/dashboard/gamejolt/"
+                      hx-request='{"credentials": true}'
+                      hx-ext="json-enc">
+                    <input class="k-button" type="submit" value="Disconnect" />
+                </form>
+            </div>
+        </div>
+
+        <div id="itch" class="k-panel k-title k-one-second k-bg-lighter k-hor-center k-buttonbar">
+            <div class="k-left">
+                <img class="k-ver-middler k-icon" alt="Icon" width="24" height="24" src="/image/logo/itchio-logo-textless-white.png" />
+                <strong>itch.io</strong>
+            </div>
+            <div class="k-right k-connect k-hidden">
+                <a class="k-button" href="/login/gamejolt/{{config.index}}">Connect</a>
+            </div>
+            <div class="k-right k-disconnect k-hidden">
+                <form action="{{config.api}}/dashboard/itch/" method="post"
+                      hx-delete="{{config.api}}/dashboard/itch/"
+                      hx-request='{"credentials": true}'
+                      hx-ext="json-enc">
+                    <input class="k-button" type="submit" value="Disconnect" />
+                </form>
+            </div>
+        </div>
+
+        <div class="k-clear"></div>
+    </div>
+</div>
+
+<script src="/dashboard.js"></script>
