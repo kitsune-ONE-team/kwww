@@ -2,14 +2,6 @@
 # vim: set ft=html:
 layout: layout/base.njk
 title: kitsune.ONE Team | Login
-
-# https://itch.io/docs/api/oauth
-itch_url: https://itch.io/user/oauth
-itch_params:
-  client_id: 76ff64840aab284b65813c9ce2e08a13
-  scope: profile:me
-  response_type: token
-  redirect_uri: https://kitsune.one/login/itch/index.html
 ---
 
 <div id="k-content">
@@ -63,13 +55,13 @@ itch_params:
                     </a>
                 </div>
 
-                <!-- <div class="k-icon"> -->
-                <!--     <span class="k-ver-middler"></span> -->
-                <!--     <a href="{{ itch_url}}?{{ itch_params | urlencode }}" class="ficon itchio"> -->
-                <!--         <img class="k-ver-middle" width="40" height="36" -->
-                <!--              src="/image/logo/itchio-logo-textless-white.png" /> -->
-                <!--     </a> -->
-                <!-- </div> -->
+                <div class="k-icon">
+                    <span class="k-ver-middler"></span>
+                    <a href="{{ config.itch_url}}?{{ config.itch_params | urlencode }}" class="ficon itchio">
+                        <img class="k-ver-middle" width="40" height="36"
+                             src="/image/logo/itchio-logo-textless-white.png" />
+                    </a>
+                </div>
             </div>
         </div>
 

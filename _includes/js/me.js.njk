@@ -10,16 +10,16 @@ async function me() {
     if (response.ok) {
         const data = await response.json();
         if (data.user.is_authenticated) {
-            loggedin.classList.remove('k-hidden');
             anonymous.classList.add('k-hidden');
-            document.getElementById('username').innerHTML = data.user.displayname;
+            loggedin.classList.remove('k-hidden');
+            loggedin.querySelector('.k-username').innerHTML = data.user.displayname;
         } else {
-            loggedin.classList.add('k-hidden');
             anonymous.classList.remove('k-hidden');
+            loggedin.classList.add('k-hidden');
         }
     } else {
-        loggedin.classList.add('k-hidden');
         anonymous.classList.add('k-hidden');
+        loggedin.classList.add('k-hidden');
     }
 }
 

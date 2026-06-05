@@ -5,7 +5,7 @@ permalink: login.js
 
 function login(event) {
     if (event.detail.successful) {
-        document.location.href = '/';
+        document.location.href = '/dashboard/{{config.index}}';
         return;
     }
 

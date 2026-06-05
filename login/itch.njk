@@ -21,7 +21,6 @@ title: kitsune.ONE Team | Login
 <script>
     var hash = window.location.hash.slice(1);
     window.location.hash = '';
-    console.log(`{{config.api}}/itch/login/?${hash}`);
     window.location = `{{config.api}}/itch/login/?${hash}`;
 </script>
 

@@ -45,9 +45,9 @@
     </div>
 
     <div id="loggedin" class="k-linkbar k-right k-hidden">
-        <a class="k-ilink" href="/">
+        <a class="k-ilink" href="/dashboard/{{config.index}}">
             <i class="fas fa-user"></i>
-            <span id="username"></span>
+            <span class="k-username"></span>
         </a>
         <a id="logout" class="k-ilink" href="{{config.api}}/one/logout/"
            hx-post="{{config.api}}/one/logout/"

@@ -5,7 +5,7 @@ permalink: signup.js
 
 function signup(event) {
     if (event.detail.successful) {
-        document.location.href = '/';
+        document.location.href = '/dashboard/{{config.index}}';
         return;
     }
 
