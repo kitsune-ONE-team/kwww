@@ -12,8 +12,19 @@ export default function() {
             client_id: '76ff64840aab284b65813c9ce2e08a13',
             scope: 'profile:me',
             response_type: 'token',
-            // redirect_uri: 'https://kitsune.one/login/itch/index.html',
             redirect_uri: 'https://kitsune.one/login/itch/',
+        },
+
+        // https://openid.net/specs/openid-authentication-2_0.html#requesting_authentication
+        // XRDS with URL: https://steamcommunity.com/openid
+        steam_url: 'https://steamcommunity.com/openid/login',
+        steam_params: {
+            'openid.ns': 'http://specs.openid.net/auth/2.0',
+            'openid.mode': 'checkid_setup',
+            'openid.claimed_id': 'http://specs.openid.net/auth/2.0/identifier_select',
+            'openid.identity': 'http://specs.openid.net/auth/2.0/identifier_select',
+            'openid.return_to': 'https://kitsune.one/login/steam/',
+            'openid.realm': 'https://kitsune.one',
         },
     }
     return config;

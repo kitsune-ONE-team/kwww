@@ -14,7 +14,7 @@ title: kitsune.ONE Team | Login
               hx-request='{"credentials": true}'
               hx-ext="json-enc">
             <p class="k-hor-center-inside">
-                <img alt="kitsune.ONE Team Logo" width="128" src="/image/icon/favicon_512.png" />
+                <img alt="kitsune.ONE Team Logo" width="128" src="/image/logo/favicon_512.png" />
             </p>
 
             <fieldset for="username">
@@ -47,6 +47,14 @@ title: kitsune.ONE Team | Login
         <h2 class="k-flow-1st">Login with social</h2>
         <div class="k-flow-2nd">
             <div class="k-hor-center-inside">
+                <div class="k-hidden k-icon">
+                    <span class="k-ver-middler"></span>
+                    <a href="{{ config.steam_url }}?{{ config.steam_params | urlencode }}">
+                        <img class="k-ver-middle" width="48" height="48"
+                             src="/image/logo/steam.png" />
+                    </a>
+                </div>
+
                 <div class="k-icon">
                     <span class="k-ver-middler"></span>
                     <a href="/login/gamejolt/{{config.index}}">
@@ -57,7 +65,7 @@ title: kitsune.ONE Team | Login
 
                 <div class="k-icon">
                     <span class="k-ver-middler"></span>
-                    <a href="{{ config.itch_url}}?{{ config.itch_params | urlencode }}" class="ficon itchio">
+                    <a href="{{ config.itch_url }}?{{ config.itch_params | urlencode }}">
                         <img class="k-ver-middle" width="40" height="36"
                              src="/image/logo/itchio-logo-textless-white.png" />
                     </a>
