@@ -19,7 +19,7 @@ title: kitsune.ONE Team | Login
 </div>
 
 <script>
-    console.log(window.location);
-    // window.location = `{{config.api}}/steam/login/`;
+    var query = window.location.search;
+    window.location = `{{config.api}}/steam/login/${query}`;
 </script>
 
