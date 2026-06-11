@@ -4,6 +4,7 @@ permalink: dashboard.js
 ---
 
 async function dashboard() {
+    const connections = ['gamejolt', 'itch', 'steam'];
     const profile = document.getElementById('profile');
 
     const response = await fetch('{{config.api}}/dashboard/', {
@@ -13,7 +14,7 @@ async function dashboard() {
         const data = await response.json();
         if (data.user.is_authenticated) {
             profile.querySelector('.k-username').innerHTML = data.user.displayname;
-            for (name of ['gamejolt', 'itch']) {
+            for (name of connections) {
                 const widget = document.getElementById(name);
                 if (data[name]) {
                     widget.querySelector('.k-connect').classList.add('k-hidden');

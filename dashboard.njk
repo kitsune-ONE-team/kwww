@@ -37,6 +37,24 @@ title: kitsune.ONE Team | Dashboard
     <div class="k-section k-bg-light k-hor-center">
         <h2>Connections</h2>
 
+        <div id="steam" class="k-panel k-title k-one-second k-bg-lighter k-hor-center k-buttonbar">
+            <div class="k-left">
+                <img class="k-ver-middler k-icon" alt="Icon" width="24" height="24" src="/image/logo/steam.png" />
+                <strong>Steam</strong>
+            </div>
+            <div class="k-right k-connect k-hidden">
+                <a class="k-button" href="{{ config.steam_url }}?{{ config.steam_params | urlencode }}">Connect</a>
+            </div>
+            <div class="k-right k-disconnect k-hidden">
+                <form action="{{config.api}}/dashboard/steam/" method="post"
+                      hx-delete="{{config.api}}/dashboard/steam/"
+                      hx-request='{"credentials": true}'
+                      hx-ext="json-enc">
+                    <input class="k-button" type="submit" value="Disconnect" />
+                </form>
+            </div>
+        </div>
+
         <div id="gamejolt" class="k-panel k-title k-one-second k-bg-lighter k-hor-center k-buttonbar">
             <div class="k-left">
                 <img class="k-ver-middler k-icon" alt="Icon" width="24" height="24" src="/image/logo/gamejolt-bolt-white-4x.d54b82f8.png" />
@@ -61,7 +79,7 @@ title: kitsune.ONE Team | Dashboard
                 <strong>itch.io</strong>
             </div>
             <div class="k-right k-connect k-hidden">
-                <a class="k-button" href="/login/gamejolt/{{config.index}}">Connect</a>
+                <a class="k-button" href="{{ config.itch_url }}?{{ config.itch_params | urlencode }}">Connect</a>
             </div>
             <div class="k-right k-disconnect k-hidden">
                 <form action="{{config.api}}/dashboard/itch/" method="post"
