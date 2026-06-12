@@ -1,0 +1,35 @@
+---
+# vim: set ft=javascript:
+permalink: blog.js
+---
+
+async function blog() {
+    var hash = window.location.hash.slice(1);
+    if (!hash.startsWith('posts/'))
+        return;
+
+    const content = document.getElementById('k-content')
+    content.innerHTML = '';
+
+    const response = await fetch(`{{config.api}}/blog/?url=${hash}`);
+    if (response.ok) {
+        const data = await response.json();
+        content.innerHTML = `
+<div class="k-section-blog k-bg-dark">
+    <h2 class="k-heading">${data.title}</h2>
+    <div class="k-blog-post" id="k-editable">
+        ${data.content}
+    </div>
+    <div class="k-clear"></div>
+</div>
+        `;
+        content.querySelectorAll('img').forEach(img => {
+            if (!img.src)
+                return;
+            const url = new URL(img.src);
+            img.src = 'https://den.kitsune.one' + url.pathname;
+        })
+    }
+}
+
+blog();
