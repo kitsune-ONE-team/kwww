@@ -17,7 +17,7 @@ function crypto(name, address) {
     qrcode.style.display = 'inline-block'; 
 }
 
-function init() {
+async function init() {
     document.querySelectorAll('.k-menu .k-clickable').forEach(link => {
         if (link.getAttribute('href') === window.location.pathname) {
             link.classList.add('k-active');
@@ -36,6 +36,32 @@ function init() {
     if (window.location.pathname === '/k/donate/' || window.location.pathname === '/k/donate/index.html') {
         crypto('btc', 'bc1q8yv2qcxr9k7tx285pke3ywqz76m8rvap04rqnk');
         crypto('sol', 'AzQ47rcTVadNXoWhNbVvTj3UqkLPwrhh5cLT6YKVp96M');
+    }
+
+    if (window.location.pathname === '/k/servers/' || window.location.pathname === '/k/servers/index.html') {
+        const response = await fetch('{{config.api}}/k2/client/server/');
+        if (response.ok) {
+            const data = await response.json();
+            var table = document.querySelector('table tbody');
+            for (row of data.servers) {
+                table.insertAdjacentHTML('beforeend', `
+                    <tr class="k-bg-light ${row.is_online ? '' : 'k-danger' }">
+                        <td>
+                            <div class="k-icon-small"><i class="fas fa-server"></i></div>
+                            ${row.name}
+                        </td>
+                        <td>${row.group}</td>
+                        <td class="k-upper">
+                            <div class="k-icon-small">
+                                <i class="fas ${row.is_online ? 'fa-cloud' : 'fa-skull-crossbones' }"></i>
+                            </div>
+                            ${row.is_online ? 'Online' : 'Offline' }
+                        </td>
+                    </tr>
+                </tr>`);
+            }
+        } else {
+        }
     }
 }
 
