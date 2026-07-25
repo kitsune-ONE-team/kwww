@@ -13,7 +13,7 @@ title: KITSUNETSUKI project | Matches
         <h2 class="k-heading">Last matches</h2>
 
         <div class="k-panel k-hor-center">
-            <table class="k-table">
+            <table id="matches" class="k-table">
             <tr class="k-bg-lighter">
                 <th>
                     <div class="k-icon-small"></div>
@@ -25,41 +25,6 @@ title: KITSUNETSUKI project | Matches
                 <th>Winner</th>
                 <th>Score</th>
             </tr>
-            {% for match in matches %}
-                <tr class="k-bg-light">
-                    <td class="k-cell-m">
-                        <div class="k-icon-small"><i class="fas fa-dice-d6"></i></div>
-                        {created}}
-                    </td>
-                    <td class="k-upper">
-                        {{mode}}
-                    </td>
-                    <td>
-                        {{time}}:00
-                    </td>
-                    <td class="k-upper">
-                        {{level}}
-                    </td>
-                    <td>
-                        {% for player in players %}
-                            [ {{n}} ]
-                        {% endfor %}
-                        {% for team in teams %}
-                            <span class="k-blue">[ {{winner.n}} ]</span>
-                            vs
-                            <span class="k-red">[ {{loser.n}} ]</span>
-                        {% endfor %}
-                    </td>
-                    <td class="k-cell-xs k-align-right">
-                        {% for player in players %}
-                            {{k}}
-                        {% endfor %}
-                        {% for team in teams %}
-                            {{winner.k}} : {{loser.k}}
-                        {% endfor %}
-                    </td>
-                </tr>
-            {% endfor %}
             </table>
         </div>
     </div>

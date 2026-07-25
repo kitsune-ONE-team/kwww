@@ -13,41 +13,19 @@ title: KITSUNETSUKI project | Servers
         <h2 class="k-heading">Servers Status</h2>
 
         <div class="k-panel k-one-second k-hor-center">
-            <table class="k-table" border="0">
+            <table id="servers" class="k-table" border="0">
                 <tr class="k-bg-lighter">
                     <th>
                         <div class="k-icon-small"></div>
                         Server Name
                     </th>
-                    <th>
-                        Data Center
-                    </th>
+                    <th>Data Center</th>
+                    <th>Mode</th>
                     <th>
                         <div class="k-icon-small"></div>
                         Status
                     </th>
                 </tr>
-                {% for server in servers %}
-                <tr class="k-bg-light {% if server.is_online %}k-danger{% endif %}">
-                    <td>
-                        <div class="k-icon-small"><i class="fas fa-server"></i></div>
-                        {{name}}
-                    </td>
-                    <td>
-                        {{group}}
-                    </td>
-                    <td class="k-upper">
-                        {% if server.is_alive %}
-                        <div class="k-icon-small"><i class="fas fa-cloud"></i></div>
-                        Online
-                        {% endif %}
-                        {% if server.is_alive %}
-                        <div class="k-icon-small"><i class="fas fa-skull-crossbones"></i></div>
-                        Offline
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
             </table>
         </div>
     </div>
