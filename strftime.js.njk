@@ -1,0 +1,17 @@
+---
+# vim: set ft=javascript:
+permalink: strftime.js
+---
+
+function strftime(format, date = new Date()) {
+    const pad = (num) => String(num).padStart(2, '0');
+    const map = {
+        '%Y': date.getFullYear(),
+        '%m': pad(date.getMonth() + 1),
+        '%d': pad(date.getDate()),
+        '%H': pad(date.getHours()),
+        '%M': pad(date.getMinutes()),
+        '%S': pad(date.getSeconds())
+    };
+    return format.replace(/%Y|%m|%d|%H|%M|%S/g, (matched) => map[matched]);
+}

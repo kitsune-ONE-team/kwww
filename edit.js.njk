@@ -1,0 +1,22 @@
+---
+# vim: set ft=javascript:
+permalink: edit.js
+---
+
+function edit() {
+    var hash = window.location.hash.slice(1);
+    if (!hash.startsWith('posts/'))
+        return;
+
+    var editor = new FroalaEditor('#k-editable', {
+        imageUploadURL: '/api/blog/image/upload/',
+        imageUploadMethod: 'POST',
+        saveInterval: 1500,
+        saveParam: 'content',
+        saveURL: `{{config.api}}/blog/?url=${hash}`,
+        saveMethod: 'POST',
+        requestWithCORS: true, 
+        requestWithCredentials: true, 
+        theme: 'dark',
+    });
+}
