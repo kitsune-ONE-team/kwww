@@ -1,0 +1,20 @@
+---
+# vim: set ft=html:
+layout: layout/base.njk
+title: kitsune.ONE Team | Login
+permalink: 404.html
+---
+
+<div id="k-content">
+    <div class="k-canvas">
+        <canvas></canvas>
+    </div>
+</div>
+
+<script src="/matrix.js"></script>
+<script type="text/javascript">
+    var matrix = new Matrix('404 NOT FOUND');
+    for (var i = 0; i < 100; i++)
+        matrix.draw(true);
+    setInterval(() => { matrix.draw() }, 50);
+</script>

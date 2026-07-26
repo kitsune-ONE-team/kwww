@@ -1,0 +1,78 @@
+---
+# vim: set ft=javascript:
+permalink: matrix.js
+---
+
+class Matrix {
+    constructor(text) {
+        this.text = text;
+
+        this.letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890!@#$%^&*()-+[]{}/\\'.split('');
+        this.cell = 16;  // cell size in pixels
+        this.rows = 30;
+
+        const container = document.querySelector('.k-canvas');
+        this.canvas = container.querySelector('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.width = container.clientWidth;
+        this.canvas.height = this.rows * this.cell;
+
+        this.columns = Math.round(this.canvas.width / this.cell);
+
+        this.text_x = Math.floor(this.columns / 2) - Math.floor(this.text.length / 2);
+        this.text_y = Math.floor(this.rows / 2);
+        console.log(this.text_x, this.text_y);
+
+        this.drops = [];
+        for (var i = 0; i < this.columns; i++)
+            this.drops[i] = this.rows * 2;
+    }
+
+    fill_rect(x, y, width, height) {
+        const abs_x = x * this.cell;
+        const abs_y = y * this.cell;
+        const abs_width = width * this.cell;
+        const abs_height = (height + 0.25) * this.cell;
+        this.ctx.fillRect(abs_x, abs_y, abs_width, abs_height);
+    }
+
+    draw(init) {
+        this.ctx.fillStyle = 'rgba(41, 46, 56, .1)';
+        if (init) {
+            this.fill_rect(0, 0, this.columns, this.rows);
+        } else {
+            this.fill_rect(0, 0, this.columns, this.text_y - 1);  // top
+            this.fill_rect(0, this.text_y, this.columns, this.rows);  // bottom
+            this.fill_rect(0, this.text_y - 1, this.text_x, 1);
+            this.fill_rect(
+                this.text_x + this.text.length, this.text_y - 1,
+                this.columns - this.text_x - this.text.length, 1);
+            for (var i = 0; i < this.text.length; i++)
+                if (this.text.charAt(i) == ' ')
+                    this.fill_rect(this.text_x + i, this.text_y - 1, 1, 1);
+            this.ctx.fillStyle = 'rgba(41, 46, 56, .02)';
+            this.fill_rect(this.text_x, this.text_y - 1, this.text.length, 1);
+        }
+        for (var x = 0; x < this.drops.length; x++) {
+            var y = this.drops[x];
+
+            var c = this.letters[Math.floor(Math.random() * this.letters.length)];
+            this.ctx.font = `${this.cell}px Arial`;
+
+            if (!init && y == this.text_y && x >= this.text_x && x < this.text_x + this.text.length) {
+                c = this.text.charAt(x - this.text_x);
+                this.ctx.font = `bold ${this.cell}px Arial`;
+            } else {
+                this.ctx.fillStyle = 'rgba(41, 46, 56, 1)';
+                this.fill_rect(x, y - 1, 1, 1);
+            }
+
+            this.ctx.fillStyle = '#b300ff';
+            this.ctx.fillText(c, x * this.cell, y * this.cell);
+
+            this.drops[x]++;
+            if (this.drops[x] > this.rows && Math.random() > (init ? 0.75 : 0.95))
+                this.drops[x] = 0;
+        }
+    }
+}
