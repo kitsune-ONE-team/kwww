@@ -11,10 +11,20 @@ permalink: 404.html
     </div>
 </div>
 
-<script src="/matrix.js"></script>
+<script src="{{config.www}}/matrix.js"></script>
 <script type="text/javascript">
-    var matrix = new Matrix('404 NOT FOUND');
-    for (var i = 0; i < 100; i++)
-        matrix.draw(true);
-    setInterval(() => { matrix.draw() }, 50);
+    function http404() {
+        if (window.location.pathname.startsWith('/posts/')) {
+            const path = window.location.pathname.slice(1);
+            window.location = `/#${path}`;  // /posts/ -> /#posts/
+            return;
+        }
+
+        var matrix = new Matrix('404 NOT FOUND');
+        for (var i = 0; i < 100; i++)
+            matrix.draw(true);
+        setInterval(() => { matrix.draw() }, 50);
+    }
+
+    http404();
 </script>
