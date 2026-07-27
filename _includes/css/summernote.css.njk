@@ -1,0 +1,50 @@
+{# vim: set ft=css: #}
+
+.note-frame {
+    color: inherit !important;
+    font-family: inherit !important;
+}
+
+.note-toolbar {
+    background-color: {{col_gray3}} !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.note-editor.note-frame {
+    border: none !important;
+}
+
+.note-editor.note-frame .note-statusbar {
+    background-color: {{col_gray3}} !important;
+    border: none !important;
+}
+
+.note-editor.note-frame .note-editing-area .note-editable {
+    padding: inherit !important;
+}
+
+.note-editor .note-editing-area .note-editable a {
+    color: {{fg_link}} !important;
+    text-decoration: none !important;
+}
+
+.note-editor .note-editing-area .note-editable a:hover {
+    color: {{fg_link_hover}} !important;
+}
+
+.note-editor.note-frame .note-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    padding-left: 32px;
+}
+
+.note-editor.note-frame .note-toolbar .note-btn-OFF {
+    color: #fff !important;
+    background-color: {{col_gray1}} !important;
+    border: none !important;
+    margin-left: 0px !important;
+    margin-right: 2px !important;
+    line-height: 1.8 !important;
+}

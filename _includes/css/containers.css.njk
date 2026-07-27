@@ -98,29 +98,19 @@ a .k-card-content, a:hover .k-card-content { color: #fff; }
 .k-section-blog-ro ul, #k-editable .fr-view ul { margin: 0; padding: 0; list-style: none; }
 .k-section-blog-ro li, #k-editable .fr-view li { margin: 0; padding: 0; }
 
-.k-section-blog-ro li::before,
-#k-editable .fr-view li::before {
+.k-section-blog-ro ul li::before,
+#k-editable ul li::before {
     content: "\2605";
     color: {{col_pri1}};
     margin-right: 4px;
     font-weight: bold;
 }
 
-.k-section-blog-ro .k-plus li::before,
-#k-editable .fr-view .k-plus li::before { content: "\002B"; color: #00ff00; }
+.k-section-blog-ro .k-plus ul li::before,
+#k-editable .k-plus ul li::before { content: "\002B"; color: #00ff00; }
 
-.k-section-blog-ro .k-minus li::before,
-#k-editable .fr-view .k-minus li::before { content: "\2212"; color: #ff0000; }
-
-#k-editable .fr-wrapper { background: none; border: none; }
-#k-editable .fr-view { color: inherit; padding: 0; }
-#k-editable .fr-sticky-dummy { display: none; }
-#k-editable .fr-toolbar,
-#k-editable .fr-second-toolbar {
-    background: {{col_gray3}};
-    border: none;
-    border-radius: 0;
-}
+.k-section-blog-ro .k-minus ul li::before,
+#k-editable .k-minus ul li::before { content: "\2212"; color: #ff0000; }
 
 .k-blog-post { line-height: 1.5; }
 .k-blog-post p,

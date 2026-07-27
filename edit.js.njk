@@ -3,20 +3,61 @@
 permalink: edit.js
 ---
 
-function edit() {
+async function save(event) {
     var hash = window.location.hash.slice(1);
     if (!hash.startsWith('posts/'))
         return;
 
-    var editor = new FroalaEditor('#k-editable', {
-        imageUploadURL: '/api/blog/image/upload/',
-        imageUploadMethod: 'POST',
-        saveInterval: 1500,
-        saveParam: 'content',
-        saveURL: `{{config.api}}/blog/?url=${hash}`,
-        saveMethod: 'POST',
-        requestWithCORS: true, 
-        requestWithCredentials: true, 
-        theme: 'dark',
+    event.preventDefault();
+    const editor = $('#k-editable')
+    const data = {
+        content: editor.summernote('code'),
+    }
+    const response = await fetch(`{{config.api}}/blog/?url=${hash}`, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        },
     });
+    if (response.ok) {
+        document.location = event.target.parentNode.href;
+    }
+}
+
+const beautify_button = function(context) {
+    const ui = $.summernote.ui;
+    const button = ui.button({
+        codeviewKeepButton: true,
+        contents: '<i class="note-icon-magic"/>',
+        click: function() {
+            const html_raw = context.invoke('code'); 
+            const html_clean = html_beautify(html_raw);
+            context.invoke('code', html_clean);
+        }
+    });
+    return button.render();
+};
+
+async function edit() {
+    var hash = window.location.hash.slice(1);
+    if (!hash.startsWith('posts/'))
+        return;
+
+    const editor = $('#k-editable').summernote({
+        buttons: {
+            beautify: beautify_button,
+        },
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['codeview', 'beautify']],
+        ]
+    });
+    document.querySelector('.note-editor').classList.add('k-blog-post');
+    document.getElementById('k-edit').addEventListener('click', save);
 }

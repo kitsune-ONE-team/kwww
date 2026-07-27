@@ -21,16 +21,14 @@ async function blog(edit) {
 <div class="k-section-blog k-bg-dark">
     <h2 class="k-heading">
         ${data.post.title}
-        <a class="${data.readonly ? 'k-hidden' : ''}" href="${url}">
-            <i class="fas ${!edit ? 'fa-pen' : 'fa-eye'}"></i>
+        <a id="k-edit" class="${data.readonly ? 'k-hidden' : ''}" href="${url}">
+            <i class="fas ${!edit ? 'fa-pen' : 'fa-floppy-disk'}"></i>
         </a>
         <span class="k-right">
             ${strftime('%Y-%m-%d %H:%M', new Date(data.post.created))}
         </span>
     </h2>
-    <div class="k-blog-post" id="k-editable">
-        ${data.post.content}
-    </div>
+    <div class="k-blog-post" id="k-editable">${data.post.content}</div>
     <div class="k-clear"></div>
 </div>
         `;
